@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import {  MatInputModule } from '@angular/material/input';
@@ -6,10 +7,38 @@ import {  MatInputModule } from '@angular/material/input';
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [MatFormFieldModule,MatLabel,MatInputModule,MatButtonModule ],
+  imports: [MatFormFieldModule,MatLabel,MatInputModule,MatButtonModule,FormsModule ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
-export class SignupComponent {
+export class SignupComponent implements OnInit {
+
+  constructor(){}
+
+  public user ={
+    userName: "",
+    password: "",
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+  }
+  
+
+  ngOnInit(): void {
+    
+  }
+
+  formSubmit(){
+    if(this.user.userName== ''|| this.user.userName==null){
+      alert("User Name must be filled ")
+    }
+    else{
+      console.log(this.user);
+    }
+    
+  }
+
+
 
 }
