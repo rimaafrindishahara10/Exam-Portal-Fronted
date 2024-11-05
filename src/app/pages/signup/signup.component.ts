@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import {  MatInputModule } from '@angular/material/input';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-signup',
@@ -13,7 +14,7 @@ import {  MatInputModule } from '@angular/material/input';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(){}
+  constructor(private userService: UserService){}
 
   public user ={
     userName: "",
@@ -36,6 +37,18 @@ export class SignupComponent implements OnInit {
     else{
       console.log(this.user);
     }
+
+    //Add-User-Call-ServiceClass
+     this.userService.addUser(this.user).subscribe(
+      (data)=>{
+        console.log(data);
+        alert("Form Submitted Successfully!!!");
+      },
+      (error)=>{
+        console.log(error);
+        alert("Something went wrong!!!!!");
+      }
+     )
     
   }
 
