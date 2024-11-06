@@ -12,6 +12,7 @@
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>User Name</mat-label>
                         <input 
+                        required="accent"
                         [(ngModel)]="user.userName"
                         type="text" name="userName" matInput placeholder="Enter Here">
                         <mat-hint>!!! Username must be unique !!!</mat-hint>
@@ -19,31 +20,31 @@
                     <!-- Password -->
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>User Password</mat-label>
-                        <input [(ngModel)]="user.password" name="password" type="password" matInput placeholder="Enter Here">
+                        <input required="accent" [(ngModel)]="user.password" name="password" type="password" matInput placeholder="Enter Here">
                     </mat-form-field>
 
                     <!-- First NAme -->
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>First Name</mat-label>
-                        <input type="text" [(ngModel)]="user.firstName" matInput name="firstName" placeholder="Enter Here">
+                        <input required="accent" type="text" [(ngModel)]="user.firstName" matInput name="firstName" placeholder="Enter Here">
                     </mat-form-field>
 
                     <!-- Last Name -->
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Last Name</mat-label>
-                        <input [(ngModel)]="user.lastName" name="lastName" type="text" matInput placeholder="Enter Here">
+                        <input required="accent" [(ngModel)]="user.lastName" name="lastName" type="text" matInput placeholder="Enter Here">
                     </mat-form-field>
 
                     <!-- Email -->
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Email Address</mat-label>
-                        <input [(ngModel)]="user.email" name="email" type="email" matInput placeholder="Enter Here">
+                        <input required="accent" [(ngModel)]="user.email" name="email" type="email" matInput placeholder="Enter Here">
                     </mat-form-field>
 
                     <!-- Phone -->
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Phone Number</mat-label>
-                        <input [(ngModel)]="user.phone" name="phone" type="number" matInput placeholder="Enter Here">
+                        <input required="accent" [(ngModel)]="user.phone" name="phone" type="number" matInput placeholder="Enter Here">
                     </mat-form-field>
 
                     <div class="container text-center">

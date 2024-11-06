@@ -4,6 +4,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import {  MatInputModule } from '@angular/material/input';
 import { UserService } from '../../services/user.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
@@ -14,7 +16,7 @@ import { UserService } from '../../services/user.service';
 })
 export class SignupComponent implements OnInit {
 
-  constructor(private userService: UserService){}
+  constructor(private userService: UserService, private snack: MatSnackBar){}
 
   public user ={
     userName: "",
@@ -32,21 +34,26 @@ export class SignupComponent implements OnInit {
 
   formSubmit(){
     if(this.user.userName== ''|| this.user.userName==null){
-      alert("User Name must be filled ")
-    }
-    else{
-      console.log(this.user);
-    }
+        this.snack.open("UserName is required!!", '',{
+        duration:3000,
+        verticalPosition:'top',
+        horizontalPosition:'right'
 
-    //Add-User-Call-ServiceClass
+       });
+       return;
+    }
+   
+   //Add-User-Call-ServiceClass
      this.userService.addUser(this.user).subscribe(
-      (data)=>{
+      (data:any)=>{
         console.log(data);
-        alert("Form Submitted Successfully!!!");
+        Swal.fire('!! Successfully Done !!','User id is ' + data.id, 'success');
       },
       (error)=>{
         console.log(error);
-        alert("Something went wrong!!!!!");
+       this.snack.open("Something went wrong!!", '',{
+        duration:300,
+       })
       }
      )
     

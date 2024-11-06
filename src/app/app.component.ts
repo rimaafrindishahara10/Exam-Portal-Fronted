@@ -5,13 +5,13 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet , MatAutocompleteModule ,MatButtonModule,MatFormFieldModule,MatInputModule , HttpClientModule],
+  imports: [RouterOutlet , MatAutocompleteModule ,MatButtonModule,MatFormFieldModule,MatInputModule , HttpClientModule,MatSnackBarModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
