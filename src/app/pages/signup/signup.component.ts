@@ -6,11 +6,12 @@ import {  MatInputModule } from '@angular/material/input';
 import { UserService } from '../../services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
+import { MatCard } from '@angular/material/card';
 
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [MatFormFieldModule,MatLabel,MatInputModule,MatButtonModule,FormsModule ],
+  imports: [MatFormFieldModule,MatLabel,MatInputModule,MatButtonModule,FormsModule,MatCard ],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
