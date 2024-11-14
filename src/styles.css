@@ -12,3 +12,10 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mb10{
     margin-bottom: 10px;
 }
+.mr10{
+    margin-right: 10px;
+
+}
+.ml10{
+    margin-left: 10px;
+}
