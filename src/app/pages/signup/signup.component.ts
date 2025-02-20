@@ -41,6 +41,7 @@ export class SignupComponent implements OnInit {
         horizontalPosition:'right'
 
        });
+      
        return;
     }
    
@@ -52,11 +53,15 @@ export class SignupComponent implements OnInit {
       },
       (error)=>{
         console.log(error);
-       this.snack.open("Something went wrong!!", '',{
-        duration:300,
-       })
+       
+          this.snack.open("This username has already taken !! Please try another one", '',{
+            duration:300,
+           });
+        
+       
       }
      )
+     
     
   }
 
