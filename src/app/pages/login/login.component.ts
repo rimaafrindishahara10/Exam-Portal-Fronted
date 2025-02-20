@@ -7,6 +7,7 @@ import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LoginService } from '../../services/login.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,7 +18,7 @@ import { LoginService } from '../../services/login.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  constructor(private snack:MatSnackBar,private loginservice: LoginService){}
+  constructor(private snack:MatSnackBar,private router:Router,private loginservice: LoginService){}
 
   loginData = {
     userName : "",
@@ -42,7 +43,7 @@ export class LoginComponent {
   }
 
   //GenerateToken -> Call The Service Class
-  this.loginservice.generaToken(this.loginData).subscribe(
+  this.loginservice.generateToken(this.loginData).subscribe(
     (data:any)=>{
       console.log("!! Success !!");
       console.log(data);
@@ -55,8 +56,18 @@ export class LoginComponent {
           console.log(user);
           //Redirect: AdminUser-Dashboard
           //Redirect: NormalUser-Dashboard
-        }
-      )
+          if(this.loginservice.getUserRole()== "ADMIN"){
+            this.router.navigate(['/admin']);
+            this.loginservice.loginStatusSubject.next(true);
+          }
+          else if(this.loginservice.getUserRole()== "NORMAL"){
+            this.router.navigate(['/userDash']);
+            this.loginservice.loginStatusSubject.next(true);
+          }else{
+            this.loginservice.userLogout();
+          }
+         
+        });
     },
     (error)=>{
       console.log(error);
