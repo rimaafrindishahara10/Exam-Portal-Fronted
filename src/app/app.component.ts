@@ -11,7 +11,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { CommonModule } from '@angular/common';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import {MatListModule} from '@angular/material/list';
+
 @Component({
   selector: 'app-root',
   standalone: true,
