@@ -33,7 +33,6 @@ export const routes: Routes = [
     {
         path:'admin',
         component:AdminDashboardComponent,
-
         canActivate:[adminGuard],
         children:[
             {
@@ -46,7 +45,7 @@ export const routes: Routes = [
             },
         ],
 
-        pathMatch:'full',
+      
         
 
     },
