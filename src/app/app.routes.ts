@@ -10,6 +10,8 @@ import { userGuard } from './services/user.guard';
 import { ProfileComponent } from './pages/profile/profile.component';
 import path from 'path';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { VeiwCategoryComponent } from './pages/admin/veiw-category/veiw-category.component';
+import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 
 export const routes: Routes = [
     {
@@ -43,6 +45,15 @@ export const routes: Routes = [
                 path:'profile',
                 component:ProfileComponent,
             },
+            {
+                path:'category',
+                component:VeiwCategoryComponent
+
+            },
+            {
+                path:'addCategory',
+                component:AddCategoryComponent
+            }
         ],
 
       

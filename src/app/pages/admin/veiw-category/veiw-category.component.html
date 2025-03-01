@@ -1,0 +1,36 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>All Categories</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <div class="bootstrap-wrapper">
+            <div class="container">
+               
+                <div class="row" *ngFor="let c of categories">
+
+                    <div class="category-item d-flex align-items-center">
+                        <mat-icon class="category-icon">category</mat-icon>
+                        <div class="category-text">
+                            <div class="title">{{ c.title }}</div>
+                            <div class="description">{{ c.description }}</div>
+                        </div>
+                        
+                    </div>
+                    <div class="delete mt10">
+                        <button mat-raised-button color="warn">Delete</button>
+                    </div>
+                    <div class="full-width-divider">
+                        <mat-divider></mat-divider>
+                    </div>
+                   
+                   
+                </div>
+
+                <div class="container text-center mt30">
+                    <button mat-raised-button color="accent">Add New Category</button>
+                </div>
+            </div>
+        </div>
+    
+    </mat-card-content>
+</mat-card>

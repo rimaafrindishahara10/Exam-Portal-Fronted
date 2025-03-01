@@ -1,0 +1,30 @@
+
+
+.category-item {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Space between icon and text */
+    padding: 10px 0;
+  }
+  
+  .category-icon {
+    font-size: 24px;
+    color: #3a3c4d; /* Optional: Change color */
+  }
+  
+  .category-text {
+    display: flex;
+    flex-direction: column;
+  }
+  .full-width-divider {
+    width: 100%;
+    margin: 8px 0;
+  }
+  .delete {
+   margin-left: auto;
+   
+}
+.mt30{
+    margin-top: 30px;
+}
+  
