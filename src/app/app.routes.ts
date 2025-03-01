@@ -6,9 +6,12 @@ import { AdminDashboardComponent } from './pages/admin/admin-dashboard/admin-das
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { adminGuard } from './services/admin.guard';
 import { userGuard } from './services/user.guard';
+<<<<<<< HEAD
 import { ProfileComponent } from './pages/profile/profile.component';
 import path from 'path';
 import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+=======
+>>>>>>> 9a97795327958ff029978d12f766dc00577acccb
 
 export const routes: Routes = [
     {
@@ -32,6 +35,7 @@ export const routes: Routes = [
     {
         path:'admin',
         component:AdminDashboardComponent,
+<<<<<<< HEAD
         canActivate:[adminGuard],
         children:[
             {
@@ -43,6 +47,10 @@ export const routes: Routes = [
                 component:ProfileComponent,
             },
         ],
+=======
+        pathMatch:'full',
+        canActivate:[adminGuard],
+>>>>>>> 9a97795327958ff029978d12f766dc00577acccb
     },
     {
         path:'userDash',
