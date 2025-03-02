@@ -8,10 +8,14 @@ import baseUrl from './help';
 export class CategoryService {
 
   constructor(private httpClient:HttpClient) { }
-
+  //Load-All Categories
   public categories() {
     return  this.httpClient.get(`${baseUrl}/category/`);
   }
-
+ 
+  //Add-Category
+  public addCategory(category:any){
+    return this.httpClient.post(`${baseUrl}/category/`,category);
+  }
 
 }
