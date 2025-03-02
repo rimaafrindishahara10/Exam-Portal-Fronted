@@ -19,7 +19,7 @@ import Swal from 'sweetalert2';
 export class VeiwCategoryComponent implements OnInit {
   
   
-  categories = [];
+  categories : any = [];
 
   constructor(private categoryService:CategoryService){}
 
@@ -28,6 +28,7 @@ export class VeiwCategoryComponent implements OnInit {
     //Get->All Categories
       this.categoryService.categories().subscribe((datas:any)=>{
              this.categories=datas;
+             console.log(datas);
       },
       (err:any)=>{
          Swal.fire('Error!!','Error in loading data', 'error');
