@@ -22,6 +22,9 @@ export class SidebarComponent {
   navigateProfile(){
     this.router.navigate(['/admin/profile']);
   }
+  navigateQuizes(){
+    this.router.navigate(['/admin/quizes']);
+  }
 
   navigateCategory() {
     this.router.navigate(['/admin/category'])
