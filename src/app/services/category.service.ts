@@ -17,5 +17,9 @@ export class CategoryService {
   public addCategory(category:any){
     return this.httpClient.post(`${baseUrl}/category/`,category);
   }
+  //Delete-Category
+  public deleteCategory(categoryId:number){
+    return this.httpClient.delete(`${baseUrl}/category/${categoryId}`);
+  }
 
 }

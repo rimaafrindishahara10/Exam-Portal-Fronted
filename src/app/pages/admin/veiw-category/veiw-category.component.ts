@@ -7,6 +7,7 @@ import { MatIcon } from '@angular/material/icon';
 import { CategoryService } from '../../../services/category.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-veiw-category',
@@ -22,8 +23,11 @@ export class VeiwCategoryComponent implements OnInit {
   
   
   categories : any = [];
+  categoryId : any;
+  
+  
 
-  constructor(private categoryService:CategoryService,private router:Router){}
+  constructor(private categoryService:CategoryService,private router:Router,private snack:MatSnackBar){}
 
 
   navigateAddCategory(){
@@ -43,13 +47,43 @@ export class VeiwCategoryComponent implements OnInit {
          Swal.fire('Error!!','Error in loading data', 'error');
       }
     );
+
+   
+    
+
   }
+
+   // Delete-Category
+   public deleteCategory(c: any) {
+    console.log(c.cid);
+    console.log(c.title);
+    this.categoryId = c.cid;
+
+    this.categoryService.deleteCategory(this.categoryId).subscribe(
+        (res: any) => {
+           
+            if (res && res.message) {
+               
+                this.categories = this.categories.filter((category: any) => category.cid !== c.cid);
+                Swal.fire('Successful', res.message, 'success');
+                console.log('Deleted', res);
+            } else {
+                Swal.fire('Error', 'Failed to delete category!', 'error');
+            }
+        },
+        (err: any) => {
+            console.error('Error deleting category:', err);
+            Swal.fire('Error', 'Something went wrong!', 'error');
+        }
+    );
+}
+
+
+}
   
   
 
 
-}
-function navigateAddCategory() {
-  throw new Error('Function not implemented.');
-}
+
+
 
