@@ -1,8 +1,11 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCard, MatCardActions, MatCardAvatar, MatCardContent, MatCardHeader, MatCardSubtitle, MatCardTitle } from '@angular/material/card';
 import { title } from 'process';
+import { QuizService } from '../../../services/quiz.service';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-quizzes',
@@ -17,38 +20,31 @@ import { title } from 'process';
 
 
 
-export class ViewQuizzesComponent {
+export class ViewQuizzesComponent implements OnInit{
+  
+  quizzes : any =[];
+  
+//Navigate Add-Quiz->Page
+navigateAddQuiz(){
+  this.router.navigate(['/admin/addQuiz']);
+}
 
-  quizzes =[
-    {
-    qId:10,
-    title:"Java Basic",
-    description:"Java is a programming language that is class-based and object-oriented. It is designed to be general-purpose and aims to have fewer implementation dependencies, and serves as a computing platform for application development.",
-    maxMarks:"50",
-    numOfQuestions:"20",
-    active:" ",
-    category:
-           {
-            title:"Programming Language"
-          }
-    
+  
+  constructor(private quizService:QuizService,private router:Router){}
 
-  },
-  {
-    qId:11,
-    title:"Java Basic",
-    description:"Java is a programming language that is class-based and object-oriented. It is designed to be general-purpose and aims to have fewer implementation dependencies, and serves as a computing platform for application development.",
-    maxMarks:"50",
-    numOfQuestions:"20",
-    active:" ",
-    category:
-           {
-            title:"Programming Language"
-          }
-    
+
+  ngOnInit(): void {
+   
+    //Get-All-Quizes->
+    this.quizService.getAllQuizs().subscribe((res:any)=>{
+           this.quizzes = res;
+           console.log(this.quizzes);
+    },(error:any)=>{
+          Swal.fire('Error','!! Somthing is wrong,Server error !!','error');
+          console.log(error);
+    });
 
   }
-  ]
 
 
 }

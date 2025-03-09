@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCard } from '@angular/material/card';
@@ -17,8 +17,10 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
-export class LoginComponent {
+export class LoginComponent  {
   constructor(private snack:MatSnackBar,private router:Router,private loginservice: LoginService){}
+  
+  
 
   loginData = {
     userName : "",
