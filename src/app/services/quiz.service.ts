@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import baseUrl from './help';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,6 +18,10 @@ export class QuizService {
   //Add-Quiz->Method
   public addQuiz(quiz:any){
     return this.httpClient.post(`${baseUrl}/quiz/`,quiz);
+  }
+  //Delete-Quiz->
+  public deleteQuiz(qid:number):Observable<any>{
+    return this.httpClient.delete(`${baseUrl}/quiz/${qid}`,{ observe: 'response' });
   }
 
 
