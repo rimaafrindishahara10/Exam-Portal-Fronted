@@ -14,6 +14,7 @@ import { VeiwCategoryComponent } from './pages/admin/veiw-category/veiw-category
 import { AddCategoryComponent } from './pages/admin/add-category/add-category.component';
 import { ViewQuizzesComponent } from './pages/admin/view-quizzes/view-quizzes.component';
 import { AddQuizComponent } from './pages/admin/add-quiz/add-quiz.component';
+import { UpdateQuizComponent } from './pages/admin/update-quiz/update-quiz.component';
 
 export const routes: Routes = [
     {
@@ -63,6 +64,10 @@ export const routes: Routes = [
             {
                 path:'addQuiz',
                 component:AddQuizComponent
+            },
+            {
+                path:'quiz/:qid',
+                component:UpdateQuizComponent
             }
 
         ],

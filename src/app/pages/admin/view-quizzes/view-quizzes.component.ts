@@ -5,13 +5,13 @@ import { MatCard, MatCardActions, MatCardAvatar, MatCardContent, MatCardHeader, 
 import { title } from 'process';
 import { QuizService } from '../../../services/quiz.service';
 import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { error } from 'console';
 
 @Component({
   selector: 'app-view-quizzes',
   standalone: true,
-  imports: [MatCard,MatCardContent,MatCardActions,MatCardAvatar,MatCardHeader,MatCardSubtitle,MatCardTitle,MatButtonModule,CommonModule],
+  imports: [MatCard,MatCardContent,MatCardActions,MatCardAvatar,MatCardHeader,MatCardSubtitle,MatCardTitle,MatButtonModule,RouterLink,CommonModule],
   templateUrl: './view-quizzes.component.html',
   styleUrl: './view-quizzes.component.css'
 })

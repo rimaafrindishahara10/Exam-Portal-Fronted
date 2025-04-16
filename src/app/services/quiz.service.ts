@@ -24,5 +24,14 @@ export class QuizService {
     return this.httpClient.delete(`${baseUrl}/quiz/${qid}`,{ observe: 'response' });
   }
 
+  //GetOne-Quiz-Method->
+  public getQuiz(qid:number){
+    return this.httpClient.get(`${baseUrl}/quiz/${qid}`);
+  }
+
+  //Update-Quiz-Method->
+  public updateQuiz(quiz:any){
+    return this.httpClient.put(`${baseUrl}/quiz/`,quiz);
+  }
 
 }
